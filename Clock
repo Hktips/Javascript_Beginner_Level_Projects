@@ -1,0 +1,12 @@
+function printCurrentTimes()
+{
+let currentDate = new Date();
+const current_Time=currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+  console.log("Hi Hemant Time is:" + current_Time);
+}
+function printTimes()
+{
+console.clear();
+printCurrentTimes()
+}
+setInterval(printTimes,1000);
