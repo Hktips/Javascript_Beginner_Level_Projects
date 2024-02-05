@@ -1,0 +1,13 @@
+const jwt=require('jsonwebtoken');
+
+const secret="supers4r3ct1";
+
+let answer=jwt.sign({
+  username:"hemant123@gmail.com",
+  password:"123"
+},secret);
+console.log(answer);
+
+jwt.verify (answer,secret,(err,originalString)=>{
+  console.log(originalString); 
+})
