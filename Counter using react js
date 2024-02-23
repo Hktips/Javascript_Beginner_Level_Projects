@@ -1,0 +1,43 @@
+import { Button, Card, Typography } from "@mui/material";
+import { pink,grey,cyan} from '@mui/material/colors';
+import { useState } from "react";
+
+function App(){
+  const [count,set_count]=useState(0)
+  return (
+  <div style={{display: "flex", justifyContent:"center"}}>
+    <Card style={{padding: 30, width: 450,backgroundColor: grey[100] }}>
+      <Typography variant="h4" textAlign={"center"} fontWeight={"bold"}>Welcome to the Count</Typography><br />
+      <ButtonCount count={count} set_count={set_count}/>
+      <CounterComponent count={count} />
+    </Card>
+  </div>
+  )
+}
+
+function ButtonCount ({count,set_count}){
+  return <div style={{ display:"flex",justifyContent:"space-between"}}>
+  <Increase count={count} set_count={set_count}/>
+  <Decrease count={count} set_count={set_count}/>
+</div>
+}
+function Increase({count,set_count}){
+  return <div>
+    <Button variant={"contained"} fontWeight={"bold"} style={{backgroundColor: pink[500] }} onClick={()=>{
+      set_count(count+1)
+    }}>Increse count</Button>
+  </div>
+}
+function Decrease({count,set_count}){
+  return <div>
+  <Button variant={"contained"} fontWeight={"bold"} style={{backgroundColor: pink[500] }} onClick={()=>{
+    set_count(count-1)
+  }}>Dncrese count</Button>
+</div>
+}
+function CounterComponent({count}){
+  return <div>
+    <Typography variant="h4" textAlign={"center"}fontWeight={"bold"}> {count}</Typography>
+  </div>
+}
+export default App;
